@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.0.2
+Date: 2024-10-01
+  Features:
+  Changes:
+  Bugfixes:
+    - Fix mod setting description about light brightness.
+    - Handle any modded power poles that would have no lighted area.
+  Info:
+---------------------------------------------------------------------------------------------------
 Version: 0.0.1
 Date: 2024-09-30
   Features:

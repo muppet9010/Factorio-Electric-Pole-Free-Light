@@ -16,10 +16,11 @@ for _, electricPolePrototype in pairs(data.raw["electric-pole"]) do
     end
     -- The light size is the diameter, centered on the power pole.
     local lightedDistance = math.max(lightedAreaDistance, lightedReachDistance)
-    lightedDistance = math.min(lightedDistance, 75) -- Max lighted tile area of 75 is a Factorio draw limitation (Factorio 1.1).
-    local lightRange = lightedDistance * 5 -- Set the light value to cover the tiles required.
 
-    -- NOTE: This can't handle quality as that's a runtime value of the prototype instance.
-
-    electricPolePrototype.light = { intensity = LightBrightness, size = lightRange, color = { r = 1.0, g = 1.0, b = 1.0 } }
+    if lightedDistance > 0 then
+        lightedDistance = math.min(lightedDistance, 75) -- Max lighted tile area of 75 is a Factorio draw limitation (Factorio 1.1).
+        local lightRange = lightedDistance * 5 -- Set the light value to cover the tiles required.
+        -- NOTE: This can't handle quality as that's a runtime value of the prototype instance.
+        electricPolePrototype.light = { intensity = LightBrightness, size = lightRange, color = { r = 1.0, g = 1.0, b = 1.0 } }
+    end
 end
