@@ -1,0 +1,13 @@
+{
+    "name": "electric_pole_free_light",
+    "version": "0.0.1",
+    "title": "Electric Pole Free Light",
+    "author": "Muppet9010",
+    "contact": "",
+    "homepage": "https://github.com/muppet9010/Factorio-Electric-Pole-Free-Light",
+    "factorio_version": "1.2",
+    "dependencies": [
+        "base >= 1.2.25"
+    ],
+    "description": "Adds a free light to electric poles based on powered range."
+}
