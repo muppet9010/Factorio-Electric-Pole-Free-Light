@@ -1,12 +1,13 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.2
-Date: 2024-10-01
+Date: 2024-10-XX
   Features:
   Changes:
   Bugfixes:
     - Fix mod setting description about light brightness.
     - Handle any modded power poles that would have no lighted area.
   Info:
+    - Changed to require Factorio 2.0 rather than 1.2 as public release nears.
 ---------------------------------------------------------------------------------------------------
 Version: 0.0.1
 Date: 2024-09-30
