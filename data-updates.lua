@@ -2,7 +2,8 @@ local lightBrightness = tonumber(settings.startup["electric_pole_free_light-ligh
 local poweredAreaLightedMultiplier = tonumber(settings.startup["electric_pole_free_light-power_pole_powered_area_lighted_percent"].value) / 100
 local connectionReachLightedMultiplier = tonumber(settings.startup["electric_pole_free_light-power_pole_connection_reach_lighted_percent"].value) / 100
 
-for _, electricPolePrototype in pairs(data.raw["electric-pole"]) do
+---@param electricPolePrototype data.ElectricPolePrototype
+function UpdateElectricPole(electricPolePrototype)
     local lightedAreaDistance, lightedReachDistance = 0, 0
     local powerPole_supplyAreaDistance = electricPolePrototype.supply_area_distance
     if poweredAreaLightedMultiplier > 0 and powerPole_supplyAreaDistance > 0 then
@@ -22,5 +23,18 @@ for _, electricPolePrototype in pairs(data.raw["electric-pole"]) do
         local lightRange = lightedDistance * 5 -- Set the light value to cover the tiles required.
         -- NOTE: This can't handle quality as that's a runtime value of the prototype instance.
         electricPolePrototype.light = { intensity = lightBrightness, size = lightRange, color = { r = 1.0, g = 1.0, b = 1.0 } }
+    end
+end
+
+if data.raw["entity"] ~= nil then
+    -- 2.0.3 and above
+    for _, prototype in pairs(data.raw["entity"] --[[@as data.EntityPrototype[] ]]) do
+        if prototype.type == "electric-pole" then UpdateElectricPole(prototype --[[@as data.ElectricPolePrototype]]) end
+    end
+end
+if data.raw["electric-pole"] ~= nil then
+    -- 2.0.2 and below
+    for _, prototype in pairs(data.raw["electric-pole"] --[[@as data.ElectricPolePrototype[] ]]) do
+        UpdateElectricPole(prototype)
     end
 end
