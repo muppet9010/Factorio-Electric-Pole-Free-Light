@@ -26,15 +26,8 @@ function UpdateElectricPole(electricPolePrototype)
     end
 end
 
-if data.raw["entity"] ~= nil then
-    -- 2.0.3 and above
-    for _, prototype in pairs(data.raw["entity"] --[[@as data.EntityPrototype[] ]]) do
-        if prototype.type == "electric-pole" then UpdateElectricPole(prototype --[[@as data.ElectricPolePrototype]]) end
-    end
-end
 if data.raw["electric-pole"] ~= nil then
-    -- 2.0.2 and below
-    for _, prototype in pairs(data.raw["electric-pole"] --[[@as data.ElectricPolePrototype[] ]]) do
+    for _, prototype in pairs(data.raw["electric-pole"]) do
         UpdateElectricPole(prototype)
     end
 end

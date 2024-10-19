@@ -1,6 +1,6 @@
 {
     "name": "electric_pole_free_light",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "title": "Electric Pole Free Light",
     "author": "Muppet9010",
     "contact": "",
@@ -9,5 +9,11 @@
     "dependencies": [
         "base >= 2.0.0"
     ],
-    "description": "Adds a free light to electric poles based on powered range."
+    "description": "Adds a free light to electric poles based on powered range.",
+    "quality_required": false,
+    "space_travel_required": false,
+    "spoiling_required": false,
+    "freezing_required": false,
+    "segmented_units_required": false,
+    "expansion_shaders_required": false
 }
